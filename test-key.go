@@ -78,6 +78,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
 	}
+	defer tcti.Close()
 	tpm := gotpm2.NewTPMContext(tcti)
 	defer tpm.Close()
 
